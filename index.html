@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Умный Зайка</title>
 <meta name="theme-color" content="#6C3CE9">
-<meta name="description" content="CRM для детских центров: расписание, ученики, оплаты, финансы и маркетинг.">
+<meta name="description" content="CRM для детского центра: расписание, ученики, оплаты, финансы и аналитика.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -12,11 +13,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Умный Зайка">
-<style>html{-webkit-text-size-adjust:100%}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
-<title>Умный Зайка</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap">
-<style>
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}[hidden]{display:none!important}img{max-width:100%}
+
 /* Layout: слева меню, справа рабочая область; на телефоне меню уходит вниз, сверху шапка с переключателем темы */
 :root {
   --bg: #FBFAFF; --surface: #FFFFFF; --surface2: #F5F2FF; --ink: #1B1633; --muted: #6B6785; --line: #E8E4F6;
@@ -193,8 +192,42 @@ a { color: var(--accent); }
 }
 @media (max-width: 420px) { .hero svg { display: none; } }
 @media (prefers-reduced-motion: no-preference) { .panel { animation: in .2s ease-out; } @keyframes in { from { transform: translateX(24px); opacity: 0; } } .btn, .nav { transition: background .15s, color .15s, border-color .15s; } }
-</style>
 
+a.btn { text-decoration: none; color: inherit; display: inline-flex; align-items: center; }
+a.btn.pri { color: var(--accent-ink); }
+.vhead { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.vhead .sub { margin-bottom: 14px; }
+.hrow { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.hsub { color: var(--muted); margin-top: 4px; font-size: 14px; }
+.empty-card { text-align: center; padding: 22px 12px; color: var(--muted); }
+.empty-card p { margin: 0 auto 14px; max-width: 46ch; }
+.banner { background: var(--warn-bg); color: var(--warn); border-radius: 14px; padding: 10px 14px; display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 14px; font-weight: 500; }
+.stepdot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-weight: 700; font-size: 13px; flex: none; }
+.stepdot.ok { background: var(--good-bg); color: var(--good); border-color: transparent; }
+.onb { max-width: 520px; margin: 6vh auto 0; text-align: center; padding: 28px 22px; }
+.onb form { text-align: left; margin-top: 8px; }
+.mark.big { width: 96px; height: 96px; border-radius: 28px; background: var(--grad); display: grid; place-items: center; margin: 0 auto 14px; box-shadow: 0 14px 30px -12px var(--accent); }
+.btn.big { padding: 12px 18px; font-size: 16px; }
+.bignum { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.chips-set { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.chips-set legend { font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 500; padding: 0; }
+form label.chk, label.chk { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 10px; padding: 7px 11px; color: var(--ink); font-size: 14px; background: var(--surface); cursor: pointer; }
+.chk input { accent-color: var(--accent); margin: 0; }
+.legend { display: flex; gap: 14px; font-size: 13px; color: var(--muted); margin: -2px 0 8px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.bars2 { display: flex; gap: 10px; align-items: stretch; height: 150px; padding-bottom: 22px; }
+.mcol { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.mcol .pair { flex: 1; width: 100%; display: flex; align-items: flex-end; justify-content: center; gap: 4px; }
+.mcol .pair div { width: 40%; max-width: 22px; min-height: 3px; border-radius: 6px 6px 2px 2px; }
+.mcol span { font-size: 12px; color: var(--muted); }
+.btn.danger { color: var(--bad); border-color: var(--bad-bg); }
+.btn.danger[data-armed] { background: var(--bad); color: #fff; border-color: var(--bad); }
+.themebtn.on { border-color: var(--accent); color: var(--accent); }
+.app.solo { grid-template-columns: minmax(0, 1fr); }
+textarea { min-height: 70px; }
+input[type=date], input[type=time] { min-height: 40px; }
+.panel .seg { margin-bottom: 4px; }
+</style>
 </head>
 <body>
 <header class="mtop" id="mtop"></header>
@@ -204,614 +237,7 @@ a { color: var(--accent); }
 </div>
 <div id="modal"></div>
 <div id="toast" class="toast" hidden></div>
-
-<script>
-/* ---------- данные (примеры, живут только на этой странице) ---------- */
-const PRICE = 24000, PACK = 8;
-const DAYS = ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
-const ORDER = [1,2,3,4,5,6,0];
-const groups = [
-  {id:1, name:'Совята', dir:'Английский', ages:[5,6], cap:8, teacher:'Айгуль Нурлановна', room:'Кабинет 1', days:[1,3,5], time:'16:00'},
-  {id:2, name:'Механики', dir:'Робототехника', ages:[8,10], cap:8, teacher:'Данияр Серикович', room:'Лаборатория', days:[2,4], time:'17:00'},
-  {id:3, name:'Акварельки', dir:'Рисование', ages:[4,5], cap:8, teacher:'Мадина Ерболатовна', room:'Кабинет 2', days:[1,3], time:'15:00'},
-  {id:4, name:'Ладья', dir:'Шахматы', ages:[7,9], cap:8, teacher:'Руслан Асхатович', room:'Кабинет 3', days:[2,4,6], time:'16:30'},
-  {id:5, name:'Эксперты', dir:'Английский', ages:[8,10], cap:8, teacher:'Айгуль Нурлановна', room:'Кабинет 1', days:[3,5], time:'18:00'},
-  {id:6, name:'Ритм', dir:'Танцы', ages:[6,8], cap:10, teacher:'Алия Маратовна', room:'Зал', days:[6,0], time:'11:00'}
-];
-const families = {
-  1:{parent:'Динара Ким', phone:'+7 701 555 01 12', debt:false},
-  2:{parent:'Азамат Беков', phone:'+7 702 555 02 34', debt:true},
-  3:{parent:'Салтанат Серикова', phone:'+7 705 555 03 56', debt:false},
-  4:{parent:'Ирина Волкова', phone:'+7 707 555 04 78', debt:true},
-  5:{parent:'Ерлан Омаров', phone:'+7 747 555 05 90', debt:false},
-  6:{parent:'Гульнара Тлеуова', phone:'+7 775 555 06 11', debt:false}
-};
-let kids = [
-  {id:1, name:'Мария Ким', al:['маша','мария'], age:5, gid:1, fid:1, left:6, abs:0, status:'active'},
-  {id:2, name:'Артём Ким', al:['артем','тема'], age:9, gid:2, fid:1, left:5, abs:0, status:'active'},
-  {id:3, name:'Тимур Беков', al:['тимур'], age:6, gid:1, fid:2, left:1, abs:2, status:'active'},
-  {id:4, name:'Амина Серикова', al:['амина','мина'], age:5, gid:1, fid:3, left:7, abs:0, status:'active'},
-  {id:5, name:'Алихан Омаров', al:['алихан','али'], age:9, gid:4, fid:5, left:4, abs:1, status:'active'},
-  {id:6, name:'Дана Омарова', al:['дана'], age:4, gid:3, fid:5, left:3, abs:0, status:'active'},
-  {id:7, name:'Егор Волков', al:['егор','гоша'], age:8, gid:2, fid:4, left:2, abs:3, status:'active'},
-  {id:8, name:'Елизавета Волкова', al:['лиза','елизавета'], age:5, gid:3, fid:4, left:0, abs:1, status:'active'},
-  {id:9, name:'Аружан Тлеуова', al:['аружан','аря'], age:7, gid:6, fid:6, left:5, abs:0, status:'active'},
-  {id:10, name:'Мирас Тлеуов', al:['мирас'], age:9, gid:5, fid:6, left:6, abs:0, status:'active'},
-  {id:11, name:'Софья Нурланова', al:['соня','софья'], age:6, gid:1, fid:3, left:8, abs:0, status:'trial'},
-  {id:12, name:'Кирилл Захаров', al:['кирилл','киря'], age:8, gid:4, fid:2, left:3, abs:0, status:'active'}
-];
-let leads = [
-  {id:1, name:'Жанна К.', child:'Ясмин', age:5, dir:'Английский', src:'Instagram', stage:0},
-  {id:2, name:'Бауыржан Т.', child:'Нурсултан', age:9, dir:'Робототехника', src:'WhatsApp', stage:0},
-  {id:3, name:'Ольга М.', child:'Полина', age:6, dir:'Танцы', src:'Сайт', stage:1},
-  {id:4, name:'Руслана А.', child:'Тамерлан', age:8, dir:'Шахматы', src:'Рекомендация', stage:2},
-  {id:5, name:'Айнур С.', child:'Лейла', age:4, dir:'Рисование', src:'Instagram', stage:2}
-];
-const STAGES = ['Новая','Связались','Пробное','Купил'];
-let revenue = 1860000, prevRevenue = 1720000, nextId = 100;
-const att = {};
-let view = 'today', filter = 'all', query = '';
-
-/* ---------- цвета и значки ---------- */
-const PAL = [['--c-violet','--c-violet-s'],['--c-blue','--c-blue-s'],['--c-pink','--c-pink-s'],['--c-amber','--c-amber-s'],['--c-teal','--c-teal-s']];
-const DIRC = {'Английский':0,'Робототехника':1,'Рисование':2,'Шахматы':3,'Танцы':4};
-const STAGEC = [1,0,3,4];
-const pal = i => `--c:var(${PAL[i % 5][0]});--s:var(${PAL[i % 5][1]})`;
-const initials = n => n.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
-const av = (name, id) => `<span class="av" style="${pal(id)}">${esc(initials(name))}</span>`;
-const dirTag = d => `<span class="dir" style="${pal(DIRC[d] ?? 0)}">${esc(d)}</span>`;
-const svg = (p, s = 20) => `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
-const IC = {
-  today: '<path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
-  schedule: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18"/>',
-  students: '<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M21 20c0-2.6-1.5-4.7-3.8-5.6"/>',
-  leads: '<path d="M3 5h18l-7 8v6l-4-2v-4z"/>',
-  mk: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
-  building: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-5h4v5"/>',
-  pay: '<path d="M3 7a2 2 0 0 1 2-2h13v3"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="14.5" r="1.2"/>',
-  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  alert: '<path d="M12 3 22 20H2z"/><path d="M12 10v4M12 17h.01"/>',
-  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
-  moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
-};
-const BUNNY_LOGO = `<svg viewBox="0 0 30 30" width="26" height="26" aria-hidden="true"><ellipse cx="11" cy="9" rx="3" ry="7" transform="rotate(-10 11 9)" fill="#fff"/><ellipse cx="19" cy="9" rx="3" ry="7" transform="rotate(10 19 9)" fill="#fff"/><ellipse cx="15" cy="20" rx="9" ry="7.5" fill="#fff"/><circle cx="11.5" cy="19.5" r="1.3" fill="#3B1D9A"/><circle cx="18.5" cy="19.5" r="1.3" fill="#3B1D9A"/><ellipse cx="15" cy="22.4" rx="1.4" ry="1" fill="#FF7FB5"/></svg>`;
-const BUNNY_HERO = `<svg viewBox="0 0 140 130" aria-hidden="true"><ellipse cx="50" cy="38" rx="13" ry="34" transform="rotate(-12 50 38)" fill="#fff"/><ellipse cx="50" cy="40" rx="6" ry="23" transform="rotate(-12 50 40)" fill="#FFB8D5"/><ellipse cx="90" cy="38" rx="13" ry="34" transform="rotate(12 90 38)" fill="#fff"/><ellipse cx="90" cy="40" rx="6" ry="23" transform="rotate(12 90 40)" fill="#FFB8D5"/><ellipse cx="70" cy="90" rx="42" ry="35" fill="#fff"/><circle cx="56" cy="86" r="11" fill="none" stroke="#2A1B5E" stroke-width="3"/><circle cx="84" cy="86" r="11" fill="none" stroke="#2A1B5E" stroke-width="3"/><path d="M67 86h6" stroke="#2A1B5E" stroke-width="3" stroke-linecap="round"/><circle cx="56" cy="86" r="4.5" fill="#2A1B5E"/><circle cx="84" cy="86" r="4.5" fill="#2A1B5E"/><ellipse cx="70" cy="101" rx="5" ry="3.6" fill="#FF8FBF"/><path d="M63 107q7 6 14 0" fill="none" stroke="#2A1B5E" stroke-width="3" stroke-linecap="round"/><circle cx="44" cy="102" r="6" fill="#FFC6DD" opacity=".85"/><circle cx="96" cy="102" r="6" fill="#FFC6DD" opacity=".85"/></svg>`;
-
-/* ---------- тема ---------- */
-const root = document.documentElement;
-try { const s = localStorage.getItem('zt'); if (s === 'dark' || s === 'light') root.setAttribute('data-theme', s); } catch (e) {}
-const effTheme = () => root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-function toggleTheme() {
-  const next = effTheme() === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  try { localStorage.setItem('zt', next); } catch (e) {}
-  render();
-}
-try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => render()); } catch (e) {}
-
-/* ---------- помощники ---------- */
-const $ = s => document.querySelector(s);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const money = n => Math.round(n).toLocaleString('ru-RU') + ' ₸';
-const dow = new Date().getDay();
-const kidsOf = g => kids.filter(k => k.gid === g);
-const grp = id => groups.find(g => g.id === id);
-function toast(t) { const el = $('#toast'); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => el.hidden = true, 2800); }
-function risk(k) {
-  const s = k.abs * 22 + (k.left <= 2 ? 28 : 0) + (families[k.fid].debt ? 18 : 0) + (k.status === 'trial' ? 12 : 0);
-  const why = [];
-  if (k.abs >= 2) why.push(k.abs + ' пропуска за месяц');
-  if (k.left <= 2) why.push(k.left === 0 ? 'абонемент закончился' : 'осталось ' + k.left + ' зан.');
-  if (families[k.fid].debt) why.push('есть долг');
-  return {score: Math.min(100, s), why};
-}
-const riskPill = r => r.score >= 70 ? '<span class="pill p-bad">высокий</span>' : r.score >= 40 ? '<span class="pill p-warn">средний</span>' : '<span class="pill p-good">низкий</span>';
-function famInvoice(fid) {
-  const list = kids.filter(k => k.fid === fid).sort((a, b) => a.id - b.id);
-  let sum = 0; list.forEach((k, i) => sum += PRICE * (i === 0 ? 1 : i === 1 ? .9 : .85));
-  return {sum, n: list.length};
-}
-function setStatus(gid, kid, st) {
-  att[gid] = att[gid] || {};
-  const k = kids.find(x => x.id === kid), prev = att[gid][kid];
-  const used = s => s === 'was' || s === 'late';
-  if (prev === st) return;
-  if (!used(prev) && used(st)) k.left = Math.max(0, k.left - 1);
-  if (used(prev) && !used(st)) k.left += 1;
-  att[gid][kid] = st;
-}
-
-/* ---------- разбор голосовой отметки (по правилам, без ИИ) ---------- */
-function parseVoice(text, gid) {
-  const t = text.toLowerCase().replace(/ё/g, 'е'), list = kidsOf(gid), out = {};
-  if (/\bвсе\b/.test(t)) list.forEach(k => out[k.id] = 'was');
-  const find = part => list.filter(k => k.al.concat(k.name.split(' ')[0].toLowerCase().replace(/ё/g, 'е')).some(n => {
-    const stem = n.slice(0, Math.max(3, n.length - 1));
-    return part.split(/\s+/).some(w => w.startsWith(stem));
-  }));
-  t.split(/[,.;]|\sи\s|\sа\s/).forEach(part => {
-    let st = null;
-    if (/болеет|болел|заболел|простуд|уважит/.test(part)) st = 'excused';
-    else if (/опозда/.test(part)) st = 'late';
-    else if (/кроме|не был|не приш|нет |отсутств|прогул/.test(part + ' ')) st = 'absent';
-    else if (/был|приш|на месте/.test(part) && !/\bвсе\b/.test(part)) st = 'was';
-    if (st) find(part).forEach(k => out[k.id] = st);
-  });
-  return out;
-}
-const STN = {was:'был', late:'опоздал', absent:'не был', excused:'уважительная'};
-
-/* ---------- экраны ---------- */
-function todayView() {
-  const ls = groups.filter(g => g.days.includes(dow)).sort((a, b) => a.time.localeCompare(b.time));
-  const active = kids.filter(k => k.status !== 'left');
-  const debtFam = Object.keys(families).filter(f => families[f].debt);
-  const debt = debtFam.reduce((s, f) => s + remainOf(+f), 0);
-  const risky = active.map(k => ({k, r: risk(k)})).filter(x => x.r.score >= 40).sort((a, b) => b.r.score - a.r.score).slice(0, 5);
-  const delta = Math.round((revenue / prevRevenue - 1) * 100);
-  const h = new Date().getHours(), hi = h < 12 ? 'Доброе утро' : h < 18 ? 'Добрый день' : 'Добрый вечер';
-  const trial = leads.filter(l => l.stage === 2).length;
-  return `<div class="hero"><div><h1>${hi}!</h1><p>${DAYS[dow]}. В центре «Умный Зайка» сегодня всё под контролем.</p>
-    <div class="chips"><span class="chip">${ls.length} ${ls.length === 1 ? 'занятие' : 'занятий'}</span><span class="chip">${active.length} учеников</span><span class="chip">${trial} на пробном</span></div></div>${BUNNY_HERO}</div>
-  <div class="grid g4" style="margin-bottom:16px">
-    <div class="card stat" style="${pal(0)}"><span class="ico">${svg(IC.pay)}</span><div class="l">Выручка за месяц</div><div class="v">${money(revenue)}</div><div class="d ${delta >= 0 ? 'up' : 'dn'}">${delta >= 0 ? '▲' : '▼'} ${Math.abs(delta)}% к прошлому месяцу</div></div>
-    <div class="card stat" style="${pal(3)}"><span class="ico">${svg(IC.clock)}</span><div class="l">Долги семей</div><div class="v">${money(debt)}</div><div class="d">${debtFam.length} ${debtFam.length === 1 ? 'семья ждёт' : 'семьи ждут'} оплаты</div></div>
-    <div class="card stat" style="${pal(1)}"><span class="ico">${svg(IC.leads)}</span><div class="l">Заявки в работе</div><div class="v">${leads.filter(l => l.stage < 3).length}</div><div class="d">${trial} записаны на пробное</div></div>
-    <div class="card stat" style="${pal(2)}"><span class="ico">${svg(IC.alert)}</span><div class="l">Под риском ухода</div><div class="v">${risky.filter(x => x.r.score >= 70).length}</div><div class="d">ещё ${risky.filter(x => x.r.score < 70).length} со средним риском</div></div>
-  </div>
-  <div class="grid g2">
-    <div class="card"><h2>Занятия сегодня</h2>${ls.length ? ls.map(g => {
-      const a = att[g.id] || {}, done = Object.keys(a).length, n = kidsOf(g.id).length;
-      return `<div class="row"><div class="time" style="${pal(DIRC[g.dir])}">${g.time}</div><div class="grow"><div class="t">${g.name}</div><div class="m">${dirTag(g.dir)} ${g.teacher} · ${g.room}</div></div>
-      ${done >= n && n ? '<span class="pill p-good">отмечено</span>' : ''}<button class="btn sm pri" data-act="group" data-id="${g.id}">${done ? 'Журнал ' + done + '/' + n : 'Отметить'}</button></div>`;
-    }).join('') : '<p class="empty">Сегодня занятий нет.</p>'}</div>
-    <div class="card"><h2>Риск ухода</h2>${risky.length ? risky.map(({k, r}) => `<div class="row">${av(k.name, k.id)}<div class="grow"><div class="t">${esc(k.name)}</div><div class="m">${r.why.join(', ')}</div></div>${riskPill(r)}<button class="btn sm" data-act="kid" data-id="${k.id}">Открыть</button></div>`).join('') : '<p class="empty">Все в порядке.</p>'}</div>
-  </div>
-  ${ratesMini()}
-  <div class="card" style="margin-top:16px"><h2>Выручка по месяцам, млн ₸</h2><div class="bars">${[['Июн', 1.42], ['Июл', 1.31], ['Авг', 1.55], ['Сен', 1.72], ['Окт', revenue / 1e6]].map(([m, v]) => `<div style="height:${v / 2 * 100}%"><b>${v.toFixed(2)}</b><span>${m}</span></div>`).join('')}</div></div>`;
-}
-function scheduleView() {
-  return `<h1>Расписание</h1><p class="sub">Неделя целиком. Нажмите «Открыть», чтобы увидеть состав группы.</p><div class="week">${ORDER.map(d => {
-    const ls = groups.filter(g => g.days.includes(d)).sort((a, b) => a.time.localeCompare(b.time));
-    return `<div class="card day"><h2>${DAYS[d]} ${d === dow ? '<span class="pill p-good">сегодня</span>' : ''}</h2>${ls.map(g => `<div class="row"><div class="time" style="${pal(DIRC[g.dir])}">${g.time}</div><div class="grow"><div class="t">${g.name}</div><div class="m">${dirTag(g.dir)} ${g.teacher} · ${g.room} · ${g.ages[0]}–${g.ages[1]} лет</div></div><span class="pill p-mute">${kidsOf(g.id).length}/${g.cap}</span><button class="btn sm" data-act="group" data-id="${g.id}">Открыть</button></div>`).join('') || '<p class="empty">Занятий нет.</p>'}</div>`;
-  }).join('')}</div>`;
-}
-function studentsView() {
-  const q = query.toLowerCase();
-  const list = kids.map(k => ({k, r: risk(k)})).filter(({k, r}) => (!q || k.name.toLowerCase().includes(q)) &&
-    (filter === 'all' || (filter === 'risk' && r.score >= 40) || (filter === 'debt' && families[k.fid].debt) || (filter === 'trial' && k.status === 'trial')));
-  const btn = (v, t) => `<button data-act="filter" data-v="${v}" aria-pressed="${filter === v}">${t}</button>`;
-  return `<h1>Ученики</h1><p class="sub">Карточки детей, остаток занятий и риск ухода.</p>
-  <div class="bar"><input type="search" id="q" placeholder="Поиск по имени" value="${esc(query)}" aria-label="Поиск по имени"><div class="seg">${btn('all', 'Все')}${btn('risk', 'Риск')}${btn('debt', 'С долгом')}${btn('trial', 'Пробные')}</div><button class="btn pri" data-act="addkid">+ Ученик</button></div>
-  <div class="card">${list.map(({k, r}) => `<div class="row">${av(k.name, k.id)}<div class="grow"><div class="t">${esc(k.name)}, ${k.age} л.</div><div class="m">${dirTag(grp(k.gid).dir)} ${grp(k.gid).name} · ${k.left} зан. · ${esc(families[k.fid].parent)}</div></div>${k.status === 'trial' ? '<span class="pill p-mute">пробный</span>' : ''}${families[k.fid].debt ? '<span class="pill p-warn">долг</span>' : ''}${riskPill(r)}<button class="btn sm" data-act="kid" data-id="${k.id}">Открыть</button></div>`).join('') || '<p class="empty">Никого не найдено.</p>'}</div>`;
-}
-function leadsView() {
-  return `<h1>Заявки</h1><p class="sub">Воронка от первого сообщения до покупки абонемента.</p>
-  <div class="bar"><button class="btn pri" data-act="addlead">+ Заявка</button></div>
-  <div class="kan">${STAGES.map((s, i) => `<div class="col" style="${pal(STAGEC[i])}"><h3><i></i>${s}<span>${leads.filter(l => l.stage === i).length}</span></h3>${leads.filter(l => l.stage === i).map(l => `<div class="lead"><div class="top">${av(l.child, DIRC[l.dir] ?? 0)}<div style="min-width:0"><div class="t">${esc(l.child)}, ${l.age} л.</div><div class="m">${esc(l.dir)} · ${esc(l.name)} · ${esc(l.src)}</div></div></div><div class="mv">${i > 0 ? `<button class="btn sm" data-act="mv" data-id="${l.id}" data-d="-1" aria-label="Назад">←</button>` : ''}${i < 3 ? `<button class="btn sm pri" data-act="mv" data-id="${l.id}" data-d="1">${STAGES[i + 1]} →</button>` : ''}</div></div>`).join('')}</div>`).join('')}</div>`;
-}
-const stat = (i, icon, l, v, d, cls = '') => `<div class="card stat" style="${pal(i)}"><span class="ico">${svg(IC[icon])}</span><div class="l">${l}</div><div class="v">${v}</div><div class="d ${cls}">${d}</div></div>`;
-const hb = (l, v, max, i, txt) => `<div class="hb" style="${pal(i)}"><span>${l}</span><div class="ht"><i style="width:${Math.max(3, v / max * 100)}%"></i></div><b>${txt ?? v}</b></div>`;
-const EX = '<span class="ex">пример</span>';
-
-/* ---------- деньги: обзор, оплаты, закупки, калькулятор ---------- */
-const TODAY = new Date().toISOString().slice(0, 10);
-const METHODS = {cash: 'Наличные', kaspi: 'Kaspi', transfer: 'Перевод'};
-const MC = {cash: 4, kaspi: 2, transfer: 1};
-const mtag = m => `<span class="dir" style="${pal(MC[m])}">${METHODS[m]}</span>`;
-let kaspi = {on: false, bin: '', point: ''};
-let fin = 'overview', payFilter = 'all', pd = {fid: 0, method: 'cash'}, priceEdit = 0;
-let payments = [
-  {id: 1, fid: 1, amount: 45600, method: 'kaspi', date: '2026-10-03'},
-  {id: 2, fid: 5, amount: 45600, method: 'transfer', date: '2026-10-12'},
-  {id: 3, fid: 3, amount: 45600, method: 'cash', date: TODAY},
-  {id: 4, fid: 6, amount: 45600, method: 'kaspi', date: TODAY},
-  {id: 5, fid: 4, amount: 20000, method: 'cash', date: TODAY}
-];
-let items = [
-  {id: 1, name: 'Бумага А4, 500 листов', unit: 'пачка', target: 2300, link: '', h: [['2026-07-15', 2190], ['2026-08-15', 2290], ['2026-09-15', 2450], ['2026-10-15', 2590]]},
-  {id: 2, name: 'Акварель, 12 цветов', unit: 'набор', target: 1300, link: '', h: [['2026-07-15', 1490], ['2026-08-15', 1450], ['2026-09-15', 1390], ['2026-10-15', 1320]]},
-  {id: 3, name: 'Конструктор для робототехники, 250 деталей', unit: 'набор', target: 14500, link: '', h: [['2026-07-15', 14900], ['2026-08-15', 15400], ['2026-09-15', 15900], ['2026-10-15', 15900]]},
-  {id: 4, name: 'Пластилин, 12 цветов', unit: 'набор', target: 0, link: '', h: [['2026-07-15', 690], ['2026-08-15', 690], ['2026-09-15', 720], ['2026-10-15', 740]]},
-  {id: 5, name: 'Маркеры для доски, 4 шт.', unit: 'набор', target: 1100, link: '', h: [['2026-07-15', 1290], ['2026-08-15', 1190], ['2026-09-15', 1190], ['2026-10-15', 1090]]}
-];
-const dueOf = f => famInvoice(f).sum;
-const paidOf = f => payments.filter(p => p.fid === f).reduce((s, p) => s + p.amount, 0);
-const remainOf = f => Math.max(0, dueOf(f) - paidOf(f));
-const fmtD = d => d === TODAY ? 'сегодня' : d.slice(8, 10) + '.' + d.slice(5, 7);
-const pct = x => (x > 0 ? '+' : x < 0 ? '−' : '') + Math.abs(x).toFixed(1).replace('.', ',') + '%';
-const curP = it => it.h[it.h.length - 1][1];
-const prevP = it => it.h.length > 1 ? it.h[it.h.length - 2][1] : curP(it);
-
-function payView() {
-  const tabs = [['overview', 'Обзор'], ['payments', 'Оплаты'], ['purchases', 'Закупки'], ['calc', 'Калькулятор'], ['rates', 'Курсы валют']];
-  const body = {overview: finOverview, payments: paymentsView, purchases: purchasesView, calc: calcView, rates: ratesView}[fin]();
-  return `<h1>Финансы ${EX}</h1><p class="sub">Деньги центра: оплаты, налоги, закупки и калькулятор.</p>
-  <div class="seg" style="margin-bottom:16px">${tabs.map(([v, t]) => `<button data-act="fin" data-v="${v}" aria-pressed="${fin === v}">${t}</button>`).join('')}</div>${body}`;
-}
-function finOverview() {
-  const exp = [['Зарплаты', 780000, 0], ['Аренда', 420000, 3], ['Маркетинг', 150000, 2], ['Прочее', 90000, 4]];
-  const expT = exp.reduce((s, e) => s + e[1], 0), profit = revenue - expT, tax = revenue * 0.04, net = profit - tax;
-  const kp = payments.filter(p => p.method === 'kaspi').sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id).slice(0, 4);
-  const kaspiCard = kaspi.on
-    ? `<div class="m" style="color:var(--muted);margin-bottom:6px">Точка продаж: ${esc(kaspi.point)}</div>${kp.map(p => `<div class="row">${av(families[p.fid].parent, p.fid)}<div class="grow"><div class="t">${esc(families[p.fid].parent)}</div><div class="m">${fmtD(p.date)}</div></div><b>${money(p.amount)}</b></div>`).join('') || '<p class="empty">Оплат через Kaspi пока нет.</p>'}
-       <p class="note2">Это пример: когда у Kaspi подтвердится доступ к API, оплаты будут отмечаться сами.</p><div class="bar" style="margin:10px 0 0"><button class="btn sm" data-act="kaspioff">Отключить</button></div>`
-    : `<p style="margin:0 0 12px;color:var(--muted)">Подключите Kaspi Pay центра, чтобы принимать оплату по ссылке и видеть её в приложении. Сейчас администратор отмечает оплату вручную.</p><button class="btn pri" data-act="kaspiconnect">Подключить Kaspi Pay</button>`;
-  return `<div class="grid g4" style="margin-bottom:16px">
-    ${stat(0, 'pay', 'Выручка', money(revenue), '▲ 8% к прошлому месяцу', 'up')}
-    ${stat(3, 'clock', 'Расходы', money(expT), 'аренда, зарплаты, маркетинг')}
-    ${stat(4, 'leads', 'Прибыль до налога', money(profit), Math.round(profit / revenue * 100) + '% от выручки')}
-    ${stat(1, 'alert', 'Налог к уплате', money(tax), 'ИП, упрощённая декларация 4%')}
-  </div>
-  <div class="grid g2" style="margin-bottom:16px">
-    <div class="card"><h2>Куда уходят деньги</h2>${exp.map(([l, v, i]) => hb(l, v, 780000, i, Math.round(v / 1000) + ' тыс')).join('')}
-      <p class="note2">После налога остаётся ${money(net)}. Налог считается с дохода, расходы не вычитаются, поэтому приложение показывает прибыль и налог отдельно.</p></div>
-    <div class="card"><h2>Kaspi Pay ${kaspi.on ? '<span class="pill p-good">подключено</span>' : '<span class="pill p-mute">не подключено</span>'}</h2>${kaspiCard}</div>
-  </div>
-  <div class="card"><h2>Налоговая отчётность</h2>
-    <p style="margin:0 0 10px;color:var(--muted)">ФНО 910.00 сдаётся дважды в год: до 15 августа и до 15 февраля, налог платится до 25 числа того же месяца. Приложение готовит выгрузку платежей для бухгалтера.</p>
-    <button class="btn pri" data-act="export">Выгрузка для бухгалтера</button></div>`;
-}
-function paymentsView() {
-  const sum = a => a.reduce((s, p) => s + p.amount, 0), today = payments.filter(p => p.date === TODAY);
-  const rows = Object.keys(families).map(Number).map(f => ({f, fam: families[f], due: dueOf(f), paid: paidOf(f), rem: remainOf(f)}))
-    .sort((a, b) => (b.rem > 0) - (a.rem > 0) || b.rem - a.rem);
-  const totalRem = rows.reduce((s, r) => s + r.rem, 0), nRem = rows.filter(r => r.rem > 0).length;
-  const list = payments.filter(p => payFilter === 'all' || p.method === payFilter).slice().sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id);
-  const fb = (v, t) => `<button data-act="pfilter" data-v="${v}" aria-pressed="${payFilter === v}">${t}</button>`;
-  return `<div class="grid g4" style="margin-bottom:16px">
-    ${stat(4, 'pay', 'Принято сегодня', money(sum(today)), today.length + ' оплат')}
-    ${stat(3, 'clock', 'Наличные сегодня', money(sum(today.filter(p => p.method === 'cash'))), 'сумма в кассе')}
-    ${stat(2, 'pay', 'Kaspi сегодня', money(sum(today.filter(p => p.method === 'kaspi'))), 'по оплатам за день')}
-    ${stat(1, 'alert', 'Не оплатили', money(totalRem), 'семей: ' + nRem)}
-  </div>
-  <div class="card" style="margin-bottom:16px"><h2>Счета семей</h2>${rows.map(({f, fam, due, paid, rem}) => `<div class="row">${av(fam.parent, f)}<div class="grow"><div class="t">${esc(fam.parent)}</div><div class="m">К оплате ${money(due)} · оплачено ${money(paid)}${rem > 0 ? ' · осталось ' + money(rem) : ''}</div></div>${rem === 0 ? '<span class="pill p-good">оплачено</span>' : paid > 0 ? '<span class="pill p-warn">частично</span>' : '<span class="pill p-bad">не оплачено</span>'}${rem > 0 ? `<button class="btn sm pri" data-act="pay" data-id="${f}">Принять оплату</button>` : ''}</div>`).join('')}</div>
-  <div class="card"><h2>Оплаты</h2><div class="seg" style="margin-bottom:8px">${fb('all', 'Все')}${fb('cash', 'Наличные')}${fb('kaspi', 'Kaspi')}${fb('transfer', 'Перевод')}</div>
-    ${list.map(p => `<div class="row">${av(families[p.fid].parent, p.fid)}<div class="grow"><div class="t">${esc(families[p.fid].parent)}</div><div class="m">${fmtD(p.date)} ${mtag(p.method)}</div></div><b>${money(p.amount)}</b></div>`).join('') || '<p class="empty">Оплат нет.</p>'}</div>`;
-}
-function spark(h, color) {
-  const v = h.map(x => x[1]), mn = Math.min(...v), mx = Math.max(...v), w = 120, ht = 34, pad = 4;
-  const pts = v.map((y, i) => [pad + i * (w - 2 * pad) / Math.max(1, v.length - 1), mx === mn ? ht / 2 : ht - pad - (y - mn) / (mx - mn) * (ht - 2 * pad)]);
-  const last = pts[pts.length - 1];
-  return `<svg viewBox="0 0 ${w} ${ht}" width="${w}" height="${ht}" aria-hidden="true"><polyline points="${pts.map(p => p.map(n => n.toFixed(1)).join(',')).join(' ')}" fill="none" style="stroke:${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3.2" style="fill:${color}"/></svg>`;
-}
-function purchasesView() {
-  const up = items.filter(i => curP(i) > prevP(i)).length, down = items.filter(i => curP(i) < prevP(i)).length;
-  const buy = items.filter(i => i.target > 0 && curP(i) <= i.target).length;
-  return `<div class="grid g4" style="margin-bottom:16px">
-    ${stat(0, 'leads', 'В списке', items.length, 'товаров для закупки')}
-    ${stat(2, 'alert', 'Подорожало', up, 'к прошлой записи', up ? 'dn' : '')}
-    ${stat(4, 'mk', 'Подешевело', down, 'к прошлой записи', down ? 'up' : '')}
-    ${stat(1, 'pay', 'Можно покупать', buy, 'цена не выше вашей цели')}
-  </div>
-  <div class="card" style="margin-bottom:16px"><h2>Добавить товар в список</h2><form id="itf">
-    <label>Название<input id="it-name" required placeholder="Например: Цветная бумага, 10 цветов"></label>
-    <div class="grid g4"><label>Цена сейчас, ₸<input id="it-price" type="number" min="1" required></label><label>Цена-цель, ₸ (необязательно)<input id="it-target" type="number" min="0"></label><label>Единица<input id="it-unit" value="шт."></label></div>
-    <label>Ссылка на товар (необязательно, https://…)<input id="it-link" type="url" placeholder="https://"></label>
-    <button class="btn pri">Добавить</button></form>
-    <p class="note2">Цены вносятся вручную: нажмите «Обновить цену», когда посмотрели её в магазине. Автоматическое чтение цен с Kaspi.kz я не проверяла, это нужно уточнить по условиям Kaspi.</p></div>
-  <div class="grid g2">${items.map(it => {
-    const cur = curP(it), prev = prevP(it), first = it.h[0][1], d = (cur - prev) / prev * 100, all = (cur - first) / first * 100;
-    const col = cur > prev ? 'var(--bad)' : cur < prev ? 'var(--good)' : 'var(--muted)';
-    const chg = cur > prev ? `<span class="pill p-bad">▲ ${pct(d)} к прошлой записи</span>` : cur < prev ? `<span class="pill p-good">▼ ${pct(d)} к прошлой записи</span>` : '<span class="pill p-mute">без изменений</span>';
-    const goal = it.target > 0 ? (cur <= it.target ? `<span class="pill p-good">ниже цели ${money(it.target)}: можно покупать</span>` : `<span class="pill p-mute">цель ${money(it.target)}, выше на ${money(cur - it.target)}</span>`) : '';
-    return `<div class="card"><div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><div style="min-width:0"><div class="t" style="font-weight:600;overflow-wrap:anywhere">${esc(it.name)}</div><div class="note2" style="margin:2px 0 0">${esc(it.unit)} · ${it.link ? `<a href="${esc(it.link)}" target="_blank" rel="noopener">ссылка на товар</a>` : 'в списке желаемого'}</div></div>${spark(it.h, col)}</div>
-      <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:10px 0 6px"><span style="font-size:24px;font-weight:700;font-variant-numeric:tabular-nums">${money(cur)}</span>${chg}</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap">${goal}</div>
-      <p class="note2">С первой записи (${fmtD(it.h[0][0])}): ${pct(all)}. Записей: ${it.h.length}.</p>
-      <div class="bar" style="margin:10px 0 0"><button class="btn sm pri" data-act="itemprice" data-id="${it.id}">Обновить цену</button><button class="btn sm" data-act="itemdel" data-id="${it.id}">Убрать</button></div></div>`;
-  }).join('')}</div>`;
-}
-function calcView() {
-  return `<div class="grid g2"><div class="card"><h2>Калькулятор абонемента</h2><form id="calc">
-    <label>Занятий в абонементе<input id="c-n" type="number" min="1" value="8"></label>
-    <label>Цена за занятие, ₸<input id="c-p" type="number" min="0" value="3000"></label>
-    <label>Детей в семье<select id="c-k"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></label>
-    <label>Дополнительная скидка, %<input id="c-d" type="number" min="0" max="100" value="0"></label>
-    <label>Способ оплаты<select id="c-m"><option value="cash">Наличные</option><option value="kaspi">Kaspi</option><option value="transfer">Перевод</option></select></label>
-    <label id="c-rl">Получено наличными, ₸<input id="c-r" type="number" min="0" placeholder="Сколько дал клиент"></label></form></div>
-  <div class="card" id="calcOut"></div></div>`;
-}
-function updateCalc() {
-  const n = +$('#c-n').value || 0, p = +$('#c-p').value || 0, k = +$('#c-k').value || 1, m = $('#c-m').value;
-  const d = Math.min(100, Math.max(0, +$('#c-d').value || 0)), base = n * p;
-  let fam = 0; for (let i = 0; i < k; i++) fam += base * (i === 0 ? 1 : i === 1 ? .9 : .85);
-  const sib = base * k - fam, ex = fam * d / 100, total = fam - ex, cnt = n * k;
-  $('#c-rl').hidden = m !== 'cash';
-  const rvRaw = $('#c-r').value, rv = rvRaw === '' ? null : +rvRaw;
-  $('#calcOut').innerHTML = `<h2>Итог</h2>
-    <div class="row"><div class="grow">Стоимость без скидок (${k} × ${n} зан.)</div><b>${money(base * k)}</b></div>
-    <div class="row"><div class="grow">Семейная скидка (2-й ребёнок −10%, 3-й и далее −15%)</div><b>−${money(sib)}</b></div>
-    <div class="row"><div class="grow">Дополнительная скидка ${d}%</div><b>−${money(ex)}</b></div>
-    <div class="row"><div class="grow t">К оплате</div><b style="font-size:24px">${money(total)}</b></div>
-    <p class="note2">В среднем ${money(cnt ? total / cnt : 0)} за занятие.</p>
-    ${m === 'cash' && rv !== null ? `<div class="preview">${rv >= total ? 'Сдача: <b>' + money(rv - total) + '</b>' : 'Не хватает: <b>' + money(total - rv) + '</b>'}</div>` : ''}`;
-}
-function payModal(fid) { pd = {fid, method: kaspi.on ? 'kaspi' : 'cash'}; renderPay(); }
-function renderPay() {
-  const f = families[pd.fid], due = dueOf(pd.fid), paid = paidOf(pd.fid), rem = remainOf(pd.fid);
-  const mb = m => `<button data-act="pm" data-m="${m}" aria-pressed="${pd.method === m}">${METHODS[m]}</button>`;
-  open(`<header><div><h2>Принять оплату</h2><div style="color:var(--muted);margin-top:4px">${esc(f.parent)}</div></div><button class="btn sm" data-act="close">Закрыть</button></header>
-  <div class="grid g4" style="margin-bottom:14px">${stat(0, 'pay', 'К оплате', money(due), '')}${stat(4, 'leads', 'Уже оплачено', money(paid), '')}${stat(3, 'clock', 'Осталось', money(rem), '')}</div>
-  <div class="seg" style="margin-bottom:12px">${mb('cash')}${mb('kaspi')}${mb('transfer')}</div>
-  <form id="pf"><label>Сумма оплаты, ₸<input id="pm-amount" type="number" min="1" max="${rem}" value="${rem}" required></label>
-    ${pd.method === 'cash' ? `<label>Получено от клиента, ₸<input id="pm-recv" type="number" min="0" value="${rem}"></label><div class="preview" id="pm-out"></div>` : ''}
-    ${pd.method === 'kaspi' && !kaspi.on ? '<p class="note2">Kaspi Pay не подключён: оплата будет отмечена вручную.</p>' : ''}
-    <div id="pm-left" class="note2"></div><button class="btn pri">Принять</button></form>`);
-  updatePay();
-}
-function updatePay() {
-  const a = +($('#pm-amount')?.value || 0), rem = remainOf(pd.fid), r = $('#pm-recv');
-  if (r) { const ch = (+r.value || 0) - a; $('#pm-out').innerHTML = ch >= 0 ? 'Сдача: <b>' + money(ch) + '</b>' : 'Не хватает: <b>' + money(-ch) + '</b>'; }
-  $('#pm-left').textContent = a >= rem ? 'После оплаты счёт будет закрыт' : 'После оплаты останется ' + money(Math.max(0, rem - a));
-}
-function kaspiModal() {
-  open(`<header><h2>Подключение Kaspi Pay</h2><button class="btn sm" data-act="close">Закрыть</button></header>
-  <p style="margin-top:0;color:var(--muted)">Это пример экрана. Введите любые тестовые данные, они никуда не отправляются. В рабочей версии подключение зависит от договора с Kaspi и доступа, который ещё нужно подтвердить.</p>
-  <form id="kcf"><label>ИИН или БИН (12 цифр)<input id="kc-bin" required inputmode="numeric" pattern="[0-9]{12}" maxlength="12"></label><label>Название точки продаж<input id="kc-point" required placeholder="Умный Зайка, Астана"></label><button class="btn pri">Подключить</button></form>`);
-}
-function itemPriceModal(id) {
-  priceEdit = id; const it = items.find(x => x.id === id);
-  open(`<header><div><h2>Обновить цену</h2><div style="color:var(--muted);margin-top:4px">${esc(it.name)}</div></div><button class="btn sm" data-act="close">Закрыть</button></header>
-  <p style="margin-top:0;color:var(--muted)">Сейчас в списке: ${money(curP(it))}. Введите цену, которую вы увидели сегодня.</p>
-  <form id="ipf"><label>Новая цена, ₸<input id="ip-price" type="number" min="1" required value="${curP(it)}"></label><button class="btn pri">Сохранить</button></form>`);
-}
-
-function marketingView() {
-  const ch = [['Instagram', 41, 0], ['WhatsApp напрямую', 22, 4], ['Рекомендации', 17, 3], ['Сайт', 14, 1]];
-  const dirs = [['Английский', 38], ['Робототехника', 24], ['Рисование', 17], ['Шахматы', 9], ['Танцы', 6]];
-  const why = [['Дорого', 11], ['Далеко от дома', 8], ['Нет времени', 7], ['Выбрали другой центр', 5], ['Не подошёл возраст', 3]];
-  const conn = [['Kaspi Pay', kaspi.on ? 'подключено' : 'не подключено', kaspi.on ? 'p-good' : 'p-mute'], ['Instagram', 'подключено', 'p-good'], ['WhatsApp Business', 'на проверке Meta', 'p-warn'], ['Реклама Meta', 'не подключена', 'p-mute'], ['Налоги', 'выгрузка для бухгалтера', 'p-mute']];
-  return `<h1>Маркетинг ${EX}</h1><p class="sub">Instagram, WhatsApp и реклама за последние 30 дней.</p>
-  <div class="grid g4" style="margin-bottom:16px">
-    ${stat(0, 'mk', 'Охват в Instagram', '48 200', '▲ 12% к прошлому периоду', 'up')}
-    ${stat(1, 'students', 'Новые подписчики', '+126', 'всего 3 480')}
-    ${stat(4, 'leads', 'Обращений', '94', 'из них 31 записались на пробное')}
-    ${stat(2, 'pay', 'Стоимость заявки', money(150000 / 52), 'реклама 150 000 ₸, 52 заявки')}
-  </div>
-  <div class="grid g2" style="margin-bottom:16px">
-    <div class="card"><h2>Откуда пришли обращения</h2>${ch.map(([l, v, i]) => hb(l, v, 41, i)).join('')}</div>
-    <div class="card"><h2>Воронка</h2>${hb('Обращения', 94, 94, 1)}${hb('Пробное', 31, 94, 3)}${hb('Купили', 14, 94, 4)}
-      <p class="note2">Из обращения в пробное 33%, из пробного в покупку 45%.</p></div>
-  </div>
-  <div class="grid g2" style="margin-bottom:16px">
-    <div class="card"><h2>Что интересует больше всего</h2>${dirs.map(([l, v]) => hb(l, v, 38, DIRC[l])).join('')}</div>
-    <div class="card"><h2>Почему отказываются</h2>${why.map(([l, v], i) => hb(l, v, 11, i === 0 ? 2 : 3)).join('')}
-      <p class="note2">Причину выбирает администратор, когда переносит заявку в «Отказ».</p></div>
-  </div>
-  <div class="card"><h2>Подключения центра</h2>${conn.map(([n, s, c]) => `<div class="row"><div class="grow"><div class="t">${n}</div></div><span class="pill ${c}">${s}</span></div>`).join('')}
-    <p class="note2">Каждый центр подключает свои аккаунты сам. Instagram хранит статистику ограниченное время, поэтому приложение сохраняет её каждый день.</p></div>`;
-}
-function centersModal() {
-  const rows = [['Умный Зайка', 'Астана', 'Стандарт', 63, 45000, 'p-good', 'Kaspi и Instagram'], ['Академия Бобёр', 'Алматы', 'Старт', 28, 25000, 'p-good', 'Kaspi'], ['Мозаика', 'Шымкент', 'Стандарт', 41, 45000, 'p-warn', 'Instagram, WhatsApp ждёт'], ['Лингва Кидс', 'Караганда', 'Пробный', 12, 0, 'p-mute', 'не подключено']];
-  const mrr = rows.reduce((s, r) => s + r[4], 0), kidsN = rows.reduce((s, r) => s + r[3], 0);
-  open(`<header><div><h2>Ваши центры ${EX}</h2><div style="color:var(--muted);margin-top:4px">Так владелец платформы видит всех клиентов</div></div><button class="btn sm" data-act="close">Закрыть</button></header>
-  <div class="grid g4" style="margin-bottom:14px">${stat(0, 'building', 'Центров', rows.length, '1 на пробном периоде')}${stat(4, 'pay', 'Доход в месяц', money(mrr), 'по тарифам')}</div>
-  <div class="tblw"><table class="tbl"><thead><tr><th>Центр</th><th>Тариф</th><th class="n">Детей</th><th class="n">В месяц</th><th>Подключения</th></tr></thead><tbody>${rows.map(r => `<tr><td><div class="t" style="font-weight:600">${r[0]}</div><div class="m" style="color:var(--muted);font-size:12px">${r[1]}</div></td><td>${r[2]}</td><td class="n">${r[3]}</td><td class="n">${r[4] ? money(r[4]) : '—'}</td><td><span class="pill ${r[5]}">${r[6]}</span></td></tr>`).join('')}</tbody></table></div>
-  <p class="note2">Всего детей в системе: ${kidsN}. Каждый центр видит только свои данные. Тарифы и цены вы задаёте сами.</p>`);
-}
-
-/* ---------- курсы валют НБ РК (снимок на 29.10.2026) ---------- */
-const RATES_DATE = '2026-10-29';
-const RATES = [
-  ['USD', 'Доллар США', 1, 457.09], ['RUB', 'Российский рубль', 1, 5.67], ['EUR', 'Евро', 1, 508.42], ['CNY', 'Китайский юань', 1, 68.56],
-  ['KGS', 'Киргизский сом', 1, 5.23], ['UZS', 'Узбекский сум', 100, 3.81], ['TRY', 'Турецкая лира', 1, 9.17], ['AED', 'Дирхам ОАЭ', 1, 124.45],
-  ['GBP', 'Фунт стерлингов', 1, 606.79], ['KRW', 'Южнокорейская вона', 100, 34.15], ['JPY', 'Японская иена', 1, 2.89], ['CHF', 'Швейцарский франк', 1, 550.51],
-  ['AUD', 'Австралийский доллар', 1, 321.2], ['AZN', 'Азербайджанский манат', 1, 269.67], ['AMD', 'Армянский драм', 10, 12.8], ['BYN', 'Белорусский рубль', 1, 155.37],
-  ['BRL', 'Бразильский реал', 1, 85.45], ['HUF', 'Венгерский форинт', 10, 13.85], ['VND', 'Вьетнамский донг', 1000, 17.68], ['HKD', 'Гонконгский доллар', 1, 58.27],
-  ['GEL', 'Грузинский лари', 1, 178.2], ['DKK', 'Датская крона', 1, 68.03], ['EGP', 'Египетский фунт', 1, 8.14], ['ILS', 'Израильский шекель', 1, 146.77],
-  ['INR', 'Индийская рупия', 1, 4.8], ['IDR', 'Индонезийская рупия', 1000, 25.15], ['IRR', 'Иранский риал', 10000, 2.46], ['CAD', 'Канадский доллар', 1, 325.26],
-  ['QAR', 'Катарский риал', 1, 125.4], ['KWD', 'Кувейтский динар', 1, 1482.61], ['MYR', 'Малайзийский ринггит', 1, 112.2], ['MXN', 'Мексиканское песо', 1, 24.5],
-  ['MDL', 'Молдавский лей', 1, 25.61], ['MNT', 'Монгольский тугрик', 100, 12.7], ['NOK', 'Норвежская крона', 1, 49.04], ['OMR', 'Оманский риал', 1, 1187.28],
-  ['PKR', 'Пакистанская рупия', 1, 1.65], ['PLN', 'Польский злотый', 1, 115.37], ['SAR', 'Саудовский риял', 1, 121.81], ['RON', 'Румынский лей', 1, 95.08],
-  ['XDR', 'СДР', 1, 618.27], ['SGD', 'Сингапурский доллар', 1, 356.46], ['TJS', 'Таджикский сомони', 1, 49.9], ['THB', 'Тайский бат', 1, 13.54],
-  ['UAH', 'Украинская гривна', 1, 10.03], ['CZK', 'Чешская крона', 1, 20.87], ['SEK', 'Шведская крона', 1, 46], ['ZAR', 'Южноафриканский рэнд', 1, 27.44]
-];
-/* история есть только для USD и RUB (официальные курсы из ежедневных сводок mybuh.kz), не за все дни */
-const RHIST = {
-  USD: [['2026-09-30', 439.37], ['2026-10-01', 440.86], ['2026-10-02', 441.91], ['2026-10-05', 447.73], ['2026-10-06', 454.98], ['2026-10-23', 447.94], ['2026-10-27', 451.05], ['2026-10-29', 457.09]],
-  RUB: [['2026-09-30', 5.22], ['2026-10-01', 5.27], ['2026-10-02', 5.30], ['2026-10-05', 5.35], ['2026-10-06', 5.37], ['2026-10-23', 5.52], ['2026-10-27', 5.60], ['2026-10-29', 5.67]]
-};
-const rateOf = c => RATES.find(r => r[0] === c);
-const fmtR = n => n.toLocaleString('ru-RU', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-const dmy = d => d.slice(8, 10) + '.' + d.slice(5, 7);
-let selCur = ['USD', 'RUB'];
-try { const s = JSON.parse(localStorage.getItem('zcur') || 'null'); if (Array.isArray(s) && s.length && s.every(c => rateOf(c))) selCur = s; } catch (e) {}
-const saveCur = () => { try { localStorage.setItem('zcur', JSON.stringify(selCur)); } catch (e) {} };
-
-function curChange(c) {
-  const h = RHIST[c]; if (!h || h.length < 2) return null;
-  const cur = h[h.length - 1][1], prev = h[h.length - 2][1], first = h[0][1];
-  return {cur, prev, prevDate: h[h.length - 2][0], d: cur - prev, p: (cur - prev) / prev * 100, firstDate: h[0][0], all: (cur - first) / first * 100, h};
-}
-function chgPill(ch) {
-  if (!ch) return '<span class="pill p-mute">изменение появится после накопления истории</span>';
-  const s = (ch.d > 0 ? '+' : ch.d < 0 ? '−' : '') + fmtR(Math.abs(ch.d)) + ' ₸ (' + pct(ch.p) + ')';
-  return ch.d > 0 ? `<span class="pill p-bad">▲ ${s} к ${dmy(ch.prevDate)}</span>` : ch.d < 0 ? `<span class="pill p-good">▼ ${s} к ${dmy(ch.prevDate)}</span>` : `<span class="pill p-mute">без изменений к ${dmy(ch.prevDate)}</span>`;
-}
-function curCard(c, removable) {
-  const [code, name, nom, rate] = rateOf(c), ch = curChange(c);
-  const col = !ch ? 'var(--muted)' : ch.d > 0 ? 'var(--bad)' : ch.d < 0 ? 'var(--good)' : 'var(--muted)';
-  return `<div class="card"><div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><div style="min-width:0"><div class="t" style="font-weight:700">${nom > 1 ? nom + ' ' : ''}${code} → KZT</div><div class="note2" style="margin:2px 0 0">${name}</div></div>${ch ? spark(ch.h, col) : ''}</div>
-    <div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:10px 0 6px"><span style="font-size:26px;font-weight:700;font-variant-numeric:tabular-nums">${fmtR(rate)} ₸</span>${chgPill(ch)}</div>
-    ${ch ? `<p class="note2">С ${dmy(ch.firstDate)}: ${pct(ch.all)}. ${ch.d > 0 ? 'Тенге ослаб к этой валюте.' : ch.d < 0 ? 'Тенге укрепился к этой валюте.' : ''}</p>` : '<p class="note2">История по этой валюте начнёт собираться с первого дня работы приложения.</p>'}
-    ${removable && selCur.length > 1 ? `<div class="bar" style="margin:10px 0 0"><button class="btn sm" data-act="curdel" data-c="${code}">Убрать</button></div>` : ''}</div>`;
-}
-function ratesMini() {
-  return `<div class="card" style="margin-top:16px"><h2 style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><span>Курсы НБ РК на ${dmy(RATES_DATE)}</span><button class="btn sm" data-act="gorates">Все курсы</button></h2>
-    ${selCur.map(c => { const [code, , nom, rate] = rateOf(c); return `<div class="row"><div class="grow"><div class="t">${nom > 1 ? nom + ' ' : ''}${code}</div><div class="m">${rateOf(c)[1]}</div></div><b style="font-variant-numeric:tabular-nums">${fmtR(rate)} ₸</b>${chgPill(curChange(c))}</div>`; }).join('')}</div>`;
-}
-function ratesView() {
-  const rest = RATES.filter(r => !selCur.includes(r[0]));
-  return `<div class="grid g2" style="margin-bottom:16px">${selCur.map(c => curCard(c, true)).join('')}</div>
-  <div class="grid g2" style="margin-bottom:16px">
-    <div class="card"><h2>Выбрать валюты</h2><p class="note2" style="margin:-4px 0 10px">По умолчанию показываются рубль и доллар. Выбор запоминается на этом устройстве.</p>
-      <div class="bar" style="margin:0"><select id="cur-add" aria-label="Валюта">${rest.map(r => `<option value="${r[0]}">${r[0]} · ${r[1]}</option>`).join('')}</select><button class="btn pri" data-act="curadd">Добавить</button><button class="btn" data-act="curreset">Сбросить</button></div></div>
-    <div class="card"><h2>Конвертер</h2><form id="conv"><div class="grid g4">
-      <label>Сумма<input id="cv-a" type="number" min="0" step="any" value="100"></label>
-      <label>Валюта<select id="cv-c">${RATES.map(r => `<option value="${r[0]}" ${r[0] === 'USD' ? 'selected' : ''}>${r[0]}</option>`).join('')}</select></label>
-      <label>Направление<select id="cv-d"><option value="to">в тенге</option><option value="from">из тенге</option></select></label></div></form>
-      <div class="preview" id="cv-out" style="margin-top:12px"></div></div>
-  </div>
-  <div class="card"><h2>Все официальные курсы на ${dmy(RATES_DATE)}.2026</h2>
-    <div class="bar"><input type="search" id="rq" placeholder="Поиск: код или название" aria-label="Поиск валюты"></div>
-    <div class="tblw"><table class="tbl" id="rtbl"><thead><tr><th>Код</th><th>Валюта</th><th class="n">Номинал</th><th class="n">Курс, ₸</th><th class="n">За 1 ед., ₸</th></tr></thead><tbody>${RATES.map(([c, n, nom, r]) => `<tr data-s="${(c + ' ' + n).toLowerCase()}"><td>${nom > 1 ? nom + ' ' : ''}<b>${c}</b></td><td>${n}</td><td class="n">${nom}</td><td class="n">${fmtR(r)}</td><td class="n">${(r / nom).toLocaleString('ru-RU', {maximumFractionDigits: 4})}</td></tr>`).join('')}</tbody></table></div>
-    <p class="note2">Источник курсов: <a href="https://nationalbank.kz/ru/exchangerates/ezhednevnye-oficialnye-rynochnye-kursy-valyut" target="_blank" rel="noopener">Национальный банк РК</a>, данные на ${dmy(RATES_DATE)}.2026. История USD и RUB взята из ежедневных сводок <a href="https://mybuh.kz/news/kursy-valyut-na-27-oktyabrya-2026-g/" target="_blank" rel="noopener">mybuh.kz</a>, в ней есть не все дни. Это снимок для примера: в рабочей версии сервер приложения каждый день забирает курсы с сайта Нацбанка и хранит историю, тогда рост и падение видны по всем валютам.</p></div>`;
-}
-function updateConv() {
-  const a = +$('#cv-a').value || 0, [code, , nom, rate] = rateOf($('#cv-c').value), per = rate / nom, dir = $('#cv-d').value;
-  $('#cv-out').innerHTML = dir === 'to'
-    ? `${a.toLocaleString('ru-RU')} ${code} = <b>${(a * per).toLocaleString('ru-RU', {maximumFractionDigits: 2})} ₸</b>`
-    : `${a.toLocaleString('ru-RU')} ₸ = <b>${(a / per).toLocaleString('ru-RU', {maximumFractionDigits: 2})} ${code}</b>`;
-}
-function filterRates() {
-  const q = $('#rq').value.trim().toLowerCase();
-  document.querySelectorAll('#rtbl tbody tr').forEach(tr => tr.hidden = !!q && !tr.dataset.s.includes(q));
-}
-
-/* ---------- окна ---------- */
-function open(html) { $('#modal').innerHTML = `<div class="ov" data-act="close"><div class="panel" role="dialog" aria-modal="true">${html}</div></div>`; }
-function closeM() { $('#modal').innerHTML = ''; }
-function groupModal(gid) {
-  const g = grp(gid), list = kidsOf(gid), isToday = g.days.includes(dow), a = att[gid] || {};
-  open(`<header><div><h2>${g.name}</h2><div style="color:var(--muted);margin-top:4px">${dirTag(g.dir)} ${g.teacher} · ${g.room} · ${g.days.map(d => DAYS[d].slice(0, 2)).join(', ')} в ${g.time}</div></div><button class="btn sm" data-act="close">Закрыть</button></header>
-  ${isToday ? `<div class="card" style="margin-bottom:14px;box-shadow:none"><h2>Голосовая отметка</h2><textarea id="vt" placeholder="Например: все были, кроме Маши, Тимур опоздал"></textarea><div class="bar" style="margin:8px 0 0"><button class="btn" data-act="parse" data-id="${gid}">Разобрать</button></div><div id="pv"></div></div>` : '<p class="sub">Отметки доступны в день занятия.</p>'}
-  ${list.map(k => `<div class="row">${av(k.name, k.id)}<div class="grow"><div class="t">${esc(k.name)}</div><div class="m">осталось ${k.left} зан.</div></div>${isToday ? `<div class="st">${['was', 'late', 'absent', 'excused'].map(s => `<button class="s-${s}" data-act="set" data-g="${gid}" data-k="${k.id}" data-s="${s}" aria-pressed="${a[k.id] === s}">${STN[s]}</button>`).join('')}</div>` : ''}</div>`).join('') || '<p class="empty">В группе пока никого.</p>'}`);
-}
-let pending = {};
-function kidModal(id) {
-  const k = kids.find(x => x.id === id), g = grp(k.gid), f = families[k.fid], r = risk(k);
-  open(`<header><div style="display:flex;gap:12px;align-items:center">${av(k.name, k.id)}<div><h2>${esc(k.name)}</h2><div style="color:var(--muted);margin-top:2px">${k.age} лет · ${g.name}</div></div></div><button class="btn sm" data-act="close">Закрыть</button></header>
-  <div class="grid g4" style="margin-bottom:14px"><div class="card stat" style="${pal(0)};box-shadow:none"><div class="l">Осталось занятий</div><div class="v">${k.left}</div></div><div class="card stat" style="${pal(2)};box-shadow:none"><div class="l">Пропусков за месяц</div><div class="v">${k.abs}</div></div></div>
-  <div class="card" style="box-shadow:none;margin-bottom:14px"><h2>Риск ухода ${riskPill(r)}</h2><div style="color:var(--muted)">${r.why.join(', ') || 'причин для беспокойства нет'}</div></div>
-  <div class="card" style="box-shadow:none"><h2>Семья</h2><div class="t" style="font-weight:600">${esc(f.parent)}</div><div style="color:var(--muted)">${esc(f.phone)}</div><div style="margin-top:8px">${f.debt ? '<span class="pill p-warn">есть долг ' + money(remainOf(k.fid)) + '</span>' : '<span class="pill p-good">без долгов</span>'}</div></div>`);
-}
-function kidForm() {
-  open(`<header><h2>Новый ученик</h2><button class="btn sm" data-act="close">Закрыть</button></header><form id="kf"><label>Имя и фамилия<input id="kn" required></label><label>Возраст<input id="ka" type="number" min="3" max="16" required></label><label>Группа<select id="kg">${groups.map(g => `<option value="${g.id}">${g.dir}: ${g.name} (${g.ages[0]}–${g.ages[1]} л.)</option>`).join('')}</select></label><label>Родитель<input id="kp" required></label><button class="btn pri">Добавить</button></form>`);
-}
-function leadForm() {
-  open(`<header><h2>Новая заявка</h2><button class="btn sm" data-act="close">Закрыть</button></header><form id="lf"><label>Родитель<input id="ln" required></label><label>Ребёнок<input id="lc" required></label><label>Возраст<input id="la" type="number" min="3" max="16" required></label><label>Направление<select id="ld">${[...new Set(groups.map(g => g.dir))].map(d => `<option>${d}</option>`).join('')}</select></label><label>Источник<select id="ls"><option>WhatsApp</option><option>Instagram</option><option>Сайт</option><option>Рекомендация</option></select></label><button class="btn pri">Добавить</button></form>`);
-}
-
-/* ---------- сборка ---------- */
-const TABS = [['today', 'Сегодня'], ['schedule', 'Расписание'], ['students', 'Ученики'], ['leads', 'Заявки'], ['pay', 'Финансы'], ['mk', 'Маркетинг']];
-function render() {
-  const debtN = Object.values(families).filter(f => f.debt).length, dark = effTheme() === 'dark';
-  const logo = `<div class="logo"><span class="mark">${BUNNY_LOGO}</span><span>Умный<br>Зайка</span></div>`;
-  const tbtn = (txt) => `<button class="themebtn" data-act="theme" aria-label="${dark ? 'Включить светлую тему' : 'Включить тёмную тему'}">${svg(dark ? IC.sun : IC.moon, 18)}${txt ? '<span>' + (dark ? 'Светлая тема' : 'Тёмная тема') + '</span>' : ''}</button>`;
-  const resetBtn = `<button class="linkbtn" data-act="reset">${resetArm ? 'Нажмите ещё раз, чтобы сбросить' : 'Сбросить демо-данные'}</button>`;
-  const cbtn = txt => `<button class="themebtn" data-act="centers" aria-label="Центры платформы">${svg(IC.building, 18)}${txt ? '<span>Центры платформы</span>' : ''}</button>`;
-  $('#nav').innerHTML = logo + TABS.map(([id, t]) => `<button class="nav" data-act="nav" data-id="${id}" ${view === id ? 'aria-current="page"' : ''}>${svg(IC[id], 20)}<span>${t}</span>${id === 'pay' && debtN ? '<b>' + debtN + '</b>' : ''}</button>`).join('') + cbtn(true) + tbtn(true) + `<div class="note">Демо-версия с примерными данными. Изменения сохраняются на этом устройстве. ${resetBtn}</div>`;
-  $('#mtop').innerHTML = logo + '<div style="display:flex;gap:8px">' + cbtn(false) + tbtn(false) + '</div>';
-  $('#view').innerHTML = {today: todayView, schedule: scheduleView, students: studentsView, leads: leadsView, pay: payView, mk: marketingView}[view]() + (view === 'today' ? `<p class="note2" style="text-align:center;margin-top:24px">Демо-данные сохраняются на этом устройстве. ${resetBtn}</p>` : '');
-  if (view === 'pay' && fin === 'calc') updateCalc();
-  if (view === 'pay' && fin === 'rates') updateConv();
-  saveState();
-}
-document.addEventListener('click', e => {
-  const b = e.target.closest('[data-act]'); if (!b) return;
-  if (b.classList.contains('ov') && e.target !== b) return;
-  const a = b.dataset.act, id = +b.dataset.id;
-  if (a === 'theme') toggleTheme();
-  else if (a === 'reset') {
-    if (!resetArm) { resetArm = true; render(); setTimeout(() => { if (resetArm) { resetArm = false; render(); } }, 4000); }
-    else { try { localStorage.removeItem('zstate'); } catch (e) {} location.reload(); }
-  }
-  else if (a === 'centers') centersModal();
-  else if (a === 'export') toast('В рабочей версии здесь скачивается Excel с платежами за период');
-  else if (a === 'nav') { view = b.dataset.id; render(); window.scrollTo(0, 0); }
-  else if (a === 'close') closeM();
-  else if (a === 'group') groupModal(id);
-  else if (a === 'kid') kidModal(id);
-  else if (a === 'filter') { filter = b.dataset.v; render(); }
-  else if (a === 'addkid') kidForm();
-  else if (a === 'addlead') leadForm();
-  else if (a === 'set') { setStatus(+b.dataset.g, +b.dataset.k, b.dataset.s); const sc = $('.panel').scrollTop; groupModal(+b.dataset.g); $('.panel').scrollTop = sc; render(); }
-  else if (a === 'parse') {
-    pending = parseVoice($('#vt').value, id); const ks = Object.keys(pending);
-    $('#pv').innerHTML = ks.length ? `<div class="preview">${ks.map(k => esc(kids.find(x => x.id == k).name.split(' ')[0]) + ': ' + STN[pending[k]]).join('<br>')}<div style="margin-top:8px"><button class="btn pri sm" data-act="apply" data-id="${id}">Подтвердить</button></div></div>` : '<div class="preview">Не нашлось имён из этой группы. Проверьте написание.</div>';
-  }
-  else if (a === 'apply') { Object.keys(pending).forEach(k => setStatus(id, +k, pending[k])); pending = {}; groupModal(id); render(); toast('Отметки сохранены, родителям уйдут уведомления'); }
-  else if (a === 'mv') {
-    const l = leads.find(x => x.id === id), to = l.stage + +b.dataset.d;
-    if (to === 3) {
-      const g = groups.find(g => g.dir === l.dir && l.age >= g.ages[0] && l.age <= g.ages[1] && kidsOf(g.id).length < g.cap);
-      if (!g) { toast('Нет свободной группы по направлению «' + l.dir + '» для ' + l.age + ' лет'); return; }
-      const fid = nextId++; families[fid] = {parent: l.name, phone: '+7 700 000 00 00', debt: true};
-      kids.push({id: nextId++, name: l.child, al: [l.child.toLowerCase()], age: l.age, gid: g.id, fid, left: 0, abs: 0, status: 'trial'});
-      toast(l.child + ' добавлен(а) в группу «' + g.name + '», выставлен счёт');
-    }
-    l.stage = to; render();
-  }
-  else if (a === 'pay') payModal(id);
-  else if (a === 'gorates') { view = 'pay'; fin = 'rates'; render(); window.scrollTo(0, 0); }
-  else if (a === 'curadd') { const c = $('#cur-add').value; if (c && !selCur.includes(c)) { selCur.push(c); saveCur(); render(); toast(c + ' добавлен'); } }
-  else if (a === 'curdel') { selCur = selCur.filter(c => c !== b.dataset.c); saveCur(); render(); }
-  else if (a === 'curreset') { selCur = ['USD', 'RUB']; saveCur(); render(); toast('Показаны рубль и доллар'); }
-  else if (a === 'fin') { fin = b.dataset.v; render(); }
-  else if (a === 'pfilter') { payFilter = b.dataset.v; render(); }
-  else if (a === 'pm') { const amt = $('#pm-amount').value; pd.method = b.dataset.m; renderPay(); $('#pm-amount').value = amt; updatePay(); }
-  else if (a === 'kaspiconnect') kaspiModal();
-  else if (a === 'kaspioff') { kaspi = {on: false, bin: '', point: ''}; render(); toast('Kaspi Pay отключён'); }
-  else if (a === 'itemprice') itemPriceModal(id);
-  else if (a === 'itemdel') { items = items.filter(x => x.id !== id); render(); toast('Товар убран из списка'); }
-});
-document.addEventListener('input', e => { if (e.target.id === 'q') { query = e.target.value; const p = e.target.selectionStart; render(); const q = $('#q'); q.focus(); q.setSelectionRange(p, p); } });
-document.addEventListener('submit', e => {
-  e.preventDefault();
-  if (e.target.id === 'kf') {
-    const fid = nextId++; families[fid] = {parent: $('#kp').value, phone: '+7 700 000 00 00', debt: true};
-    kids.push({id: nextId++, name: $('#kn').value, al: [$('#kn').value.split(' ')[0].toLowerCase()], age: +$('#ka').value, gid: +$('#kg').value, fid, left: 0, abs: 0, status: 'trial'});
-    closeM(); render(); toast('Ученик добавлен, счёт выставлен');
-  } else if (e.target.id === 'lf') {
-    leads.push({id: nextId++, name: $('#ln').value, child: $('#lc').value, age: +$('#la').value, dir: $('#ld').value, src: $('#ls').value, stage: 0});
-    closeM(); render(); toast('Заявка добавлена');
-  }
-});
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
-document.addEventListener('input', e => { if (e.target.closest('#calc')) updateCalc(); else if (e.target.closest('#conv')) updateConv(); else if (e.target.id === 'rq') filterRates(); else if (e.target.closest('#pf')) updatePay(); });
-document.addEventListener('submit', e => {
-  e.preventDefault(); const fid = e.target.id;
-  if (fid === 'pf') {
-    const a = +$('#pm-amount').value, rem = remainOf(pd.fid);
-    if (!(a > 0) || a > rem) { toast('Сумма должна быть от 1 до ' + money(rem)); return; }
-    const recv = pd.method === 'cash' ? +$('#pm-recv').value : 0;
-    if (pd.method === 'cash' && recv < a) { toast('Получено меньше суммы оплаты'); return; }
-    payments.push({id: nextId++, fid: pd.fid, amount: a, method: pd.method, date: TODAY}); revenue += a;
-    const left = remainOf(pd.fid); let msg = 'Принято ' + money(a);
-    if (pd.method === 'cash' && recv > a) msg += ', сдача ' + money(recv - a);
-    if (left === 0) { kids.filter(k => k.fid === pd.fid).forEach(k => { k.left += PACK; k.status = 'active'; }); families[pd.fid].debt = false; msg += '. Счёт закрыт, абонемент продлён'; }
-    else msg += '. Осталось ' + money(left);
-    closeM(); render(); toast(msg);
-  } else if (fid === 'itf') {
-    const link = $('#it-link').value.trim();
-    if (link && !link.startsWith('https://')) { toast('Ссылка должна начинаться с https://'); return; }
-    items.unshift({id: nextId++, name: $('#it-name').value.trim(), unit: $('#it-unit').value.trim() || 'шт.', target: +$('#it-target').value || 0, link, h: [[TODAY, +$('#it-price').value]]});
-    render(); toast('Товар добавлен в список');
-  } else if (fid === 'ipf') {
-    const it = items.find(x => x.id === priceEdit), v = +$('#ip-price').value, prev = curP(it);
-    if (it.h[it.h.length - 1][0] === TODAY) it.h[it.h.length - 1][1] = v; else it.h.push([TODAY, v]);
-    closeM(); render(); toast(v === prev ? 'Цена не изменилась' : (v > prev ? 'Подорожало на ' : 'Подешевело на ') + Math.abs((v - prev) / prev * 100).toFixed(1).replace('.', ',') + '%');
-  } else if (fid === 'kcf') {
-    kaspi = {on: true, bin: $('#kc-bin').value, point: $('#kc-point').value.trim()};
-    closeM(); render(); toast('Kaspi Pay подключён (пример)');
-  }
-});
-/* ---------- сохранение на устройстве ---------- */
-let resetArm = false;
-function saveState() { try { localStorage.setItem('zstate', JSON.stringify({v: 1, kids, leads, families, revenue, nextId, att, payments, items, kaspi})); } catch (e) {} }
-function loadState() {
-  try {
-    const s = JSON.parse(localStorage.getItem('zstate') || 'null');
-    if (!s || s.v !== 1) return;
-    kids = s.kids; leads = s.leads; revenue = s.revenue; nextId = s.nextId; payments = s.payments; items = s.items; kaspi = s.kaspi;
-    Object.keys(families).forEach(k => delete families[k]); Object.assign(families, s.families); Object.assign(att, s.att);
-  } catch (e) {}
-}
-loadState();
-render();
-</script>
-
-<script>if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));</script>
+<noscript>Для работы приложения включите JavaScript.</noscript>
+<script src="app.js?v=2"></script>
 </body>
 </html>
